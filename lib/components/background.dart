@@ -1,3 +1,4 @@
+import 'package:dhpversion2/const/constant.dart';
 import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
@@ -5,7 +6,7 @@ class Background extends StatelessWidget {
   const Background({
     Key? key,
     required this.child,
-    this.topImage = "assets/logo/logodhp.png",
+    this.topImage = "assets/logo/logodhp2.PNG",
     this.bottomImage = "assets/images/image4.png",
   }) : super(key: key);
 
@@ -14,38 +15,28 @@ class Background extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.08,
-              child: Image.asset(
-                topImage,
-              ),
-              width: 90,
-            ),
-            // Positioned(
-            //   top: MediaQuery.of(context).size.height * 0.05,
-            //   left: MediaQuery.of(context).size.width * 0.6,
-            //   child: Image.asset(
-            //     "assets/images/image3.png",
-            //   ),
-            //   width: 200,
-            // ),
-            Positioned(
-              top: MediaQuery.of(context).size.height * 0.1,
-              child: Image.asset(
-                bottomImage,
-              ),
-              width: 1000,
-            ),
-            SafeArea(child: child),
-          ],
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'SIGNUP',
+          style: TextStyle(color: kPrimaryColor),
         ),
+        backgroundColor: kPrimaryLightColor,
+      ),
+      // bottomNavigationBar:
+      resizeToAvoidBottomInset: false,
+      body: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.1,
+            child: Image.asset(
+              bottomImage,
+            ),
+            width: 1000,
+          ),
+          SafeArea(child: child),
+        ],
       ),
     );
   }

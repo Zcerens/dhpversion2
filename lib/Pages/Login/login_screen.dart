@@ -17,9 +17,6 @@ class LoginScreen extends StatelessWidget {
           mobile: const MobileLoginScreen(),
           desktop: Row(
             children: [
-              // const Expanded(
-              //   child: LoginScreenTopImage(),
-              // ),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

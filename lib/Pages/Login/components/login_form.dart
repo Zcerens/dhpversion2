@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/already_have_an_account_acheck.dart';
 import '../../../const/constant.dart';
 
 class LoginForm extends StatelessWidget {
@@ -13,6 +12,13 @@ class LoginForm extends StatelessWidget {
     return Form(
       child: Column(
         children: [
+          Image.asset(
+            "assets/logo/logodhp2.PNG",
+            width: 260,
+          ),
+
+          Text("Digital Health Platform",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
           Divider(
             height: MediaQuery.of(context).size.height * 0.08,
             color: Colors.grey[400],
@@ -54,6 +60,18 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: defaultPadding),
+          Container(
+            alignment: Alignment.centerRight,
+            child: Text(
+              "Forgot Password?",
+              style: TextStyle(
+                  fontSize: 15,
+                  letterSpacing: 0.06,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+          const SizedBox(height: defaultPadding),
+
           Hero(
             tag: "login_btn",
             child: ElevatedButton(
@@ -63,6 +81,7 @@ class LoginForm extends StatelessWidget {
               ),
             ),
           ),
+
           const SizedBox(height: defaultPadding),
           // AlreadyHaveAnAccountCheck(
           //   press: () {

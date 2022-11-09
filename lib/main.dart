@@ -1,19 +1,18 @@
 import 'package:dhpversion2/Pages/Login/login_screen.dart';
+import 'package:dhpversion2/Pages/Signup/signup_screen.dart';
+import 'package:dhpversion2/components/background.dart';
 import 'package:flutter/material.dart';
-
 import 'const/constant.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
+      title: 'DHP Project',
       theme: ThemeData(
           primaryColor: kPrimaryColor,
           scaffoldBackgroundColor: Colors.white,
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           )),
-      home: const LoginScreen(),
+      home: SignupScreen(),
     );
   }
 }
