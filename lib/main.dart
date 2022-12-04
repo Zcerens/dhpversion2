@@ -1,7 +1,11 @@
-import 'package:dhpversion2/Pages/Login/login_screen.dart';
+import 'package:dhpversion2/Pages/Appointmens/appointments_screen.dart';
+import 'package:dhpversion2/Pages/Branches/branches_screen.dart';
+import 'package:dhpversion2/Pages/Branches/components/branches_search.dart';
+import 'package:dhpversion2/Pages/PageTransition/pageTransition_screen.dart';
 import 'package:dhpversion2/Pages/Signup/signup_screen.dart';
-import 'package:dhpversion2/components/background.dart';
+import 'package:dhpversion2/demo.dart';
 import 'package:flutter/material.dart';
+
 import 'const/constant.dart';
 
 void main() => runApp(const MyApp());
@@ -37,7 +41,7 @@ class MyApp extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           )),
-      home: SignupScreen(),
+      home: AppointmentsScreen(),
     );
   }
 }

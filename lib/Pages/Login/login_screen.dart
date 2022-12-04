@@ -12,6 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Background(
+      title: "LOGIN",
       child: SingleChildScrollView(
         child: Responsive(
           mobile: const MobileLoginScreen(),

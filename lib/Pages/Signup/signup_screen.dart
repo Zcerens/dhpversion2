@@ -13,6 +13,7 @@ class _SignupScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return Background(
+      title: "SIGNUP",
       child: SignupForm(),
     );
   }

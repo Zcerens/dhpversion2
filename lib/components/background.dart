@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class Background extends StatelessWidget {
   final Widget child;
+  final String? title;
   const Background({
     Key? key,
     required this.child,
+    required this.title,
     this.topImage = "assets/logo/logodhp2.PNG",
     this.bottomImage = "assets/images/image4.png",
   }) : super(key: key);
@@ -18,7 +20,7 @@ class Background extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text(
-          'SIGNUP',
+          '${title}',
           style: TextStyle(color: kPrimaryColor),
         ),
         backgroundColor: kPrimaryLightColor,
@@ -26,6 +28,7 @@ class Background extends StatelessWidget {
       // bottomNavigationBar:
       resizeToAvoidBottomInset: false,
       body: Stack(
+        fit: StackFit.expand,
         alignment: Alignment.center,
         children: <Widget>[
           Positioned(

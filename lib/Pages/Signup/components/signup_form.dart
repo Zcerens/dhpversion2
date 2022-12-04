@@ -1,3 +1,7 @@
+import 'package:csc_picker/csc_picker.dart';
+import 'package:date_time_picker/date_time_picker.dart';
+import 'package:dhpversion2/Pages/PageTransition/pageTransition_screen.dart';
+import 'package:dhpversion2/const/constant.dart';
 import 'package:flutter/material.dart';
 
 class SignupForm extends StatefulWidget {
@@ -9,12 +13,20 @@ class SignupForm extends StatefulWidget {
 
 class _SignupFormState extends State<SignupForm> {
   final formKey = GlobalKey<FormState>();
+  String? name = "";
   String? username = "";
   String? email = "";
   String? password = "";
   String? password2 = "";
   List<String> userTypes = ['Doctor', 'Trainer', 'Nutritionist'];
   String? selectedUserType = 'Doctor';
+  late String day;
+  late String time_start;
+  late String time_end;
+
+  List<String> genders = ['Female', 'Male', 'Other'];
+  String? selectedGender = 'Female';
+
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
@@ -36,6 +48,12 @@ class _SignupFormState extends State<SignupForm> {
                 buildEmail(),
                 SizedBox(height: 15),
                 buildPassword(),
+                SizedBox(height: 15),
+                buildCountry(),
+                SizedBox(height: 25),
+                buildBirthDate(),
+                SizedBox(height: 25),
+                buildGender(),
                 SizedBox(height: 25),
                 buildSubmit(),
                 SizedBox(height: 300)
@@ -63,7 +81,7 @@ class _SignupFormState extends State<SignupForm> {
           }
         },
         maxLength: 30,
-        onSaved: (value) => setState(() => username = value),
+        onSaved: (value) => setState(() => name = value),
       );
 
   Widget buildSurname() => TextFormField(
@@ -187,17 +205,21 @@ class _SignupFormState extends State<SignupForm> {
             if (isValid) {
               formKey.currentState!.save();
 
-              final message =
-                  'Username: $username \nEmail: $email\nPassword: $password';
+              final message = 'Welcome $name please select this one.';
               final snackBar = SnackBar(
                 content: Text(
                   message,
                   style: TextStyle(fontSize: 20),
                 ),
                 // width: 50,
-                backgroundColor: Colors.green,
+                backgroundColor: Color.fromARGB(255, 12, 218, 19),
               );
               ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const PageTransitionScreen()),
+              );
             }
           },
           child: Text("SUBMIT"),
@@ -234,5 +256,95 @@ class _SignupFormState extends State<SignupForm> {
                 child: Text(userType, style: TextStyle(fontSize: 16))))
             .toList(),
         onChanged: (userType) => setState(() => selectedUserType = userType),
+      );
+
+  Widget buildBirthDate() => DateTimePicker(
+        decoration: const InputDecoration(
+          //iconu başa aldım
+          icon: Icon(Icons.event_note),
+          //suffixIcon: Icon(Icons.event_note),
+          labelText: "Birth Date",
+          fillColor: Colors.white,
+          border: OutlineInputBorder(),
+        ),
+        dateMask: 'd MMM, yyyy',
+        initialValue: "",
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100),
+        icon: Icon(Icons.event),
+        dateLabelText: 'Date',
+        selectableDayPredicate: (date) {
+          // Disable weekend days to select from the calendar
+          if (date.weekday == 6 || date.weekday == 7) {
+            return false;
+          }
+
+          return true;
+        },
+        onChanged: (val) {
+          setState(() => day = val);
+
+          print(day);
+          print(day.runtimeType);
+        },
+        validator: (val) {
+          return null;
+        },
+        onSaved: (val) => print(val),
+      );
+
+  Widget buildGender() => DropdownButtonFormField<String>(
+        validator: (value) {
+          if (value == null) {
+            return 'Select a Gender';
+          } else {
+            return null;
+          }
+        },
+        decoration: InputDecoration(
+          labelText: "Gender",
+          icon: Icon(Icons.girl),
+
+          enabledBorder: OutlineInputBorder(
+              //borderSide: BorderSide(color: Colors.blue, width: 2),
+
+              ),
+          border: OutlineInputBorder(
+            borderSide:
+                BorderSide(color: Color.fromARGB(255, 35, 35, 35), width: 0.4),
+          ),
+          //filled: true,
+          fillColor: Colors.white,
+        ),
+        value: null,
+        items: genders
+            .map((gender) => DropdownMenuItem<String>(
+                value: gender,
+                child: Text(gender, style: TextStyle(fontSize: 16))))
+            .toList(),
+        onChanged: (gender) => setState(() => selectedGender = gender),
+      );
+
+  Widget buildCountry() => Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Container(
+                alignment: Alignment.bottomLeft,
+                child: Icon(
+                  Icons.location_city,
+                  color: kPrimaryColor,
+                  size: 35,
+                )),
+          ),
+          Expanded(
+            flex: 10,
+            child: CSCPicker(
+              onCountryChanged: (country) {},
+              onStateChanged: (state) {},
+              onCityChanged: (city) {},
+            ),
+          ),
+        ],
       );
 }
