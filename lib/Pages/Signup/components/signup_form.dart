@@ -90,11 +90,6 @@ class _SignupFormState extends State<SignupForm> {
           icon: Icon(Icons.person),
           fillColor: Colors.white,
           border: OutlineInputBorder(),
-          // errorBorder:
-          //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-          // focusedErrorBorder:
-          //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-          // errorStyle: TextStyle(color: Colors.purple),
         ),
         validator: (value) {
           if (value!.length < 4) {
@@ -113,11 +108,6 @@ class _SignupFormState extends State<SignupForm> {
           icon: Icon(Icons.person),
           fillColor: Colors.white,
           border: OutlineInputBorder(),
-          // errorBorder:
-          //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-          // focusedErrorBorder:
-          //     OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
-          // errorStyle: TextStyle(color: Colors.purple),
         ),
         validator: (value) {
           if (value!.length < 4) {

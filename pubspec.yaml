@@ -41,6 +41,9 @@ dependencies:
   date_time_picker: ^2.1.0
   date_field: ^3.0.2
   csc_picker: ^0.2.6
+  country_state_city_picker: ^1.2.8
+  material_design_icons_flutter: ^6.0.7096
+  dio: ^4.0.6
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +68,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+  
   assets:
     - assets/logo/
     - assets/images/

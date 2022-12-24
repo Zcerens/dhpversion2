@@ -1,6 +1,12 @@
 import 'package:dhpversion2/Pages/Appointmens/appointments_screen.dart';
+import 'package:dhpversion2/Pages/AppointmensGet/appointments_get_screen.dart';
+import 'package:dhpversion2/Pages/AppointmensPut/appointments_put_screen.dart';
 import 'package:dhpversion2/Pages/Branches/branches_screen.dart';
 import 'package:dhpversion2/Pages/Branches/components/branches_search.dart';
+import 'package:dhpversion2/Pages/ChangePassword/change_password_screen.dart';
+import 'package:dhpversion2/Pages/ChangePassword/components/change_password_form.dart';
+import 'package:dhpversion2/Pages/Login/login_screen.dart';
+import 'package:dhpversion2/Pages/MainPage/main_screen.dart';
 import 'package:dhpversion2/Pages/PageTransition/pageTransition_screen.dart';
 import 'package:dhpversion2/Pages/Signup/signup_screen.dart';
 import 'package:dhpversion2/demo.dart';
@@ -41,7 +47,7 @@ class MyApp extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           )),
-      home: AppointmentsScreen(),
+      home: MainScreen(),
     );
   }
 }

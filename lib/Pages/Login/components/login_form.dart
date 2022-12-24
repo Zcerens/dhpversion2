@@ -2,16 +2,25 @@ import 'package:flutter/material.dart';
 
 import '../../../const/constant.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     Key? key,
   }) : super(key: key);
 
   @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final formKey = GlobalKey<FormState>();
+  var firstController = TextEditingController();
+  String? email = "FullName";
+  @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
+          Text(email!),
           Image.asset(
             "assets/logo/logodhp2.PNG",
             width: 260,
@@ -27,9 +36,22 @@ class LoginForm extends StatelessWidget {
 
           TextFormField(
             keyboardType: TextInputType.emailAddress,
+            validator: (value) {
+              if (value!.length < 4) {
+                return 'Enter at least 4 characters';
+              } else {
+                return null;
+              }
+            },
+            controller: firstController,
             textInputAction: TextInputAction.next,
             cursorColor: kPrimaryColor,
-            onSaved: (email) {},
+            onSaved: (value) => setState(() => email = value!),
+            // onSaved: (value) {
+            //   setState(() {
+            //     email = value!;
+            //   });
+            // },
             decoration: InputDecoration(
               hintText: "Your email",
               prefixIcon: Padding(
@@ -78,6 +100,23 @@ class LoginForm extends StatelessWidget {
               onPressed: () {},
               child: Text(
                 "Login".toUpperCase(),
+              ),
+            ),
+          ),
+          SizedBox(height: 10),
+          Hero(
+            tag: "deneme_btn",
+            child: ElevatedButton(
+              onPressed: () {
+                //final isValid = formKey.currentState!.validate();
+                var firstName = firstController.text;
+
+                setState(() {
+                  email = firstName;
+                });
+              },
+              child: Text(
+                "Deneme".toUpperCase(),
               ),
             ),
           ),
