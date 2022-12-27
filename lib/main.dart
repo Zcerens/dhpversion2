@@ -1,5 +1,5 @@
-import 'package:dhpversion2/Pages/Appointmens/appointments_screen.dart';
-import 'package:dhpversion2/Pages/AppointmensGet/appointments_get_screen.dart';
+import 'package:dhpversion2/Pages/Appoinments/appointment_screen.dart';
+import 'package:dhpversion2/Pages/AppointmentSchedule/appointments_schedule_screen.dart';
 import 'package:dhpversion2/Pages/AppointmensPut/appointments_put_screen.dart';
 import 'package:dhpversion2/Pages/Branches/branches_screen.dart';
 import 'package:dhpversion2/Pages/Branches/components/branches_search.dart';
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           )),
-      home: MainScreen(),
+      home: AppointmentsScheduleScreen(),
     );
   }
 }

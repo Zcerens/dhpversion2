@@ -21,13 +21,15 @@ class _MainFormState extends State<MainForm> {
     "Cildiye",
     "Kalp",
     "Psikoloji",
-    "Kadın Hastalıkları"
+    "Kadın Hastalıkları",
+    "Kardiyoloji"
   ];
   List<String> doctors = [
     "Bulent Hoca",
     "Servet Hoca",
     "Ceren Sahin",
     "Ozlem Kucuksagir",
+    "XXX YY"
   ];
   @override
   Widget build(BuildContext context) {
@@ -100,23 +102,6 @@ class _MainFormState extends State<MainForm> {
         ),
         SizedBox(
           height: 10,
-        ),
-        Container(
-          height: 100,
-          child: ListView.builder(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: userAvatar.length,
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
-                      child: storyButton(userAvatar[index], "doctorName"),
-                    )
-                  ],
-                );
-              }),
         ),
         Container(
           width: MediaQuery.of(context).size.width, // EKRANIN GENİŞLİĞİ

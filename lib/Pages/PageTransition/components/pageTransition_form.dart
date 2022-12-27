@@ -1,4 +1,4 @@
-import 'package:dhpversion2/Pages/AppointmensGet/appointments_get_screen.dart';
+import 'package:dhpversion2/Pages/AppointmentSchedule/appointments_schedule_screen.dart';
 import 'package:dhpversion2/Pages/AppointmensPut/appointments_put_screen.dart';
 import 'package:dhpversion2/Pages/Branches/branches_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class _PageTransitionState extends State<PageTransition> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const AppointmentsGetScreen()),
+                    builder: (context) => const AppointmentsScheduleScreen()),
               );
             },
             child: Text(
