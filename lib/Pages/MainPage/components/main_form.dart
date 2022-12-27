@@ -24,10 +24,10 @@ class _MainFormState extends State<MainForm> {
     "Kadın Hastalıkları"
   ];
   List<String> doctors = [
-    "Ceren Sahin",
-    "Ozlem Kucuksagir",
     "Bulent Hoca",
     "Servet Hoca",
+    "Ceren Sahin",
+    "Ozlem Kucuksagir",
   ];
   @override
   Widget build(BuildContext context) {
@@ -73,17 +73,33 @@ class _MainFormState extends State<MainForm> {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
-          child: Row(children: [
-            Text(
-              "Find a doctor, \nmake an appointment.",
-              textAlign: TextAlign.start,
-              style: TextStyle(
-                  fontSize: 35,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold),
-            )
-          ]),
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          child: Row(
+            children: [
+              Text(
+                "Find a doctor, \nmake an appointment.",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: 35,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          child: Text(
+            "interview online.",
+            textAlign: TextAlign.start,
+            style: TextStyle(
+                fontSize: 35,
+                color: kPrimaryColor,
+                fontWeight: FontWeight.w500),
+          ),
+        ),
+        SizedBox(
+          height: 10,
         ),
         Container(
           height: 100,
@@ -95,7 +111,7 @@ class _MainFormState extends State<MainForm> {
                 return Column(
                   children: [
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                      margin: EdgeInsets.symmetric(vertical: 2, horizontal: 5),
                       child: storyButton(userAvatar[index], "doctorName"),
                     )
                   ],
@@ -215,16 +231,56 @@ class _MainFormState extends State<MainForm> {
                                   ),
                                   child: Image.asset(
                                     "assets/images/doctor${index + 1}.jpg",
-                                    width: 250,
+                                    width: 180,
+                                    height: 180,
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
                               ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: Container(
+                                  margin: EdgeInsets.all(5),
+                                  height: 40,
+                                  width: 40,
+                                  decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: kPrimaryLightColor,
+                                            blurRadius: 4,
+                                            spreadRadius: 2)
+                                      ]),
+                                  child: Center(
+                                    child: Icon(
+                                      Icons.favorite_outline,
+                                      color: kPrimaryColor,
+                                      size: 25,
+                                    ),
+                                  ),
+                                ),
+                              )
                             ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text("fkdslgkf"),
+                          SizedBox(
+                            height: 5,
                           ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 1),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  doctors[index],
+                                  style: TextStyle(
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
                         ]),
                   )
                 ],
