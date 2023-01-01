@@ -45,6 +45,8 @@ dependencies:
   material_design_icons_flutter: ^6.0.7096
   dio: ^4.0.6
   font_awesome_flutter: ^10.3.0
+  table_calendar: ^3.0.8
+  lottie: ^1.4.2
 
 dev_dependencies:
   flutter_test:
